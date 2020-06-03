@@ -92,4 +92,4 @@ class Lexer {
   }
 }
 
-export default Lexergo
+export default Lexer

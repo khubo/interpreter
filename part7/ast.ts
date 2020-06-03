@@ -66,7 +66,7 @@ class Parser {
       if (token.type === "MUL") this.eat("MUL")
       else this.eat("DIV")
 
-      node = new BinOp(node, token, this.factor)
+      node = new BinOp(node, token, this.factor())
     }
 
     return node
@@ -92,9 +92,4 @@ class Parser {
   }
 }
 
-(() => {
-  const expression = "3 + 2 - 1"
-  const lexer = new Lexer(expression)
-  const parser = new Parser(lexer)
-  console.log(parser.parse())
-})()
+export default Parser
