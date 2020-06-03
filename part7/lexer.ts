@@ -86,8 +86,15 @@ class Lexer {
       return token
     }
 
-    if (this.currentChar === '(') return new Token('OPEN', '(')
-    if (this.currentChar === ')') return new Token('CLOSE', ')')
+    if (this.currentChar === '(') {
+      this.advance()
+      return new Token('OPEN', '(')
+    }
+    if (this.currentChar === ')') {
+      this.advance()
+      return new Token('CLOSE', ')')
+    }
+
     throw new Error("invalid tokens")
   }
 }
